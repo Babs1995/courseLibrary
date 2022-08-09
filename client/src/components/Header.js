@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 function Header( {context}) {
 const  authUser  = context.authUser;
-console.log(authUser);
+// console.log(authUser);
 
-//return (
+// return (
 //   <header>
 //     <div className="wrap header--flex">
 //       <h1 className="header--logo"><Link to="/">Courses</Link></h1>
