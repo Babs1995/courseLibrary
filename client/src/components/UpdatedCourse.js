@@ -2,13 +2,12 @@ import React, { useState, useContext, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { Buffer } from 'buffer';
 import Form from './Form';
-import {Context} from '../Context';
 import Forbidden from './Forbidden';
 
-export default function UpdatedCourse() {
+export default function UpdatedCourse({context}) {
 
     let history = useHistory();
-    let context = useContext(Context.Context);
+    // let context = useContext(Context.Context);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [estimatedTime, setEstimatedTime] = useState('');

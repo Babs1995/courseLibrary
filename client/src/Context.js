@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Cookies from 'js-cookie';
 import Data from './Data';
 
-export const Context = React.createContext()
+const Context = React.createContext(); 
 
 export class Provider extends Component {
 
@@ -22,7 +22,7 @@ export class Provider extends Component {
   }
 
   render() {
-    const authUser = this.state;
+    const {authUser} = this.state;
     const courses = this.state;
 
     const value = {

@@ -1,13 +1,13 @@
 import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Buffer } from 'buffer';
-import {Context} from '../Context';
+// import {Context} from '../Context';
 import Form from './Form';
 
-export default function CreateCourse() {
+export default function CreateCourse({context}) {
 
     let history = useHistory();
-    let context = useContext(Context.Context);
+    // let context = useContext(Context.Context);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [estimatedTime, setEstimatedTime] = useState('');

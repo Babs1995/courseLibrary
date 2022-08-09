@@ -2,7 +2,8 @@ import React, { useContext} from "react";
 import { Link } from "react-router-dom";
 
 function Header( {context}) {
-//const  authUser  = context.authUser;
+const  authUser  = context.authUser;
+console.log(authUser);
 
 //return (
 //   <header>

@@ -2,12 +2,11 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link, useParams, useHistory } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown'
 import { Buffer } from "buffer";
-import {Context} from '../Context';
 
-export default function CourseDetail() {
+export default function CourseDetail( {context}) {
 
     let history = useHistory();
-    const context = useContext(Context.Context);
+    // const context = useContext(Context.Context);
     const [course, setCourse] = useState([]);
     const { id } = useParams();
     
