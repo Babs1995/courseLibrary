@@ -7,26 +7,26 @@ const Context = React.createContext();
 export class Provider extends Component {
 
   state = {
-    authenticatedUser: null,
+    authUser: null,
     courses: []
   };
 
   constructor() {
     super();
     this.data = new Data();
-    this.cookie = Cookies.get('authenticatedUser');
+    this.cookie = Cookies.get('auth-user');
 
     this.state = {
-      authenticatedUser: this.cookie ? JSON.parse(this.cookie) : null
+      authUser: this.cookie ? JSON.parse(this.cookie) : null
     };
   }
 
   render() {
-    const {authenticatedUser} = this.state;
+    const {authUser} = this.state;
     const courses = this.state;
 
     const value = {
-      authenticatedUser,
+      authUser,
       courses,
       data: this.data,
       actions: { 
@@ -48,10 +48,10 @@ export class Provider extends Component {
       user.password = password;
       this.setState(() => {
         return {
-          authenticatedUser: user,
+          authUser: user,
         };
       });
-      Cookies.set('authenticatedUser', JSON.stringify(user), {expires: 1});
+      Cookies.set('auth-user', JSON.stringify(user), {expires: 1});
     }
     return user;
   }
@@ -59,10 +59,10 @@ export class Provider extends Component {
   signOut = () => {
     this.setState(() => {
       return {
-        authenticatedUser: null,
+        authUser: null,
       }
     });
-    Cookies.remove('authenticatedUser');
+    Cookies.remove('auth-user');
   }
 }
 

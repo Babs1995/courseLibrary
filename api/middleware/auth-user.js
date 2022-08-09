@@ -2,9 +2,9 @@
 
 const auth = require('basic-auth');
 const bcrypt = require('bcrypt');
-const { User } = require('../models');
+const  { User } = require('../models');
 
-exports.authenticateUser = async (req, res, next) => {
+exports.authUser = async (req, res, next) => {
   let message; // store the message to display
 
   // Parse the user's credentials from the Authorization header.
@@ -12,14 +12,14 @@ exports.authenticateUser = async (req, res, next) => {
   console.log(credentials);
 
   if (credentials) {
-    const user = await User.findOne({
+    const authUser = await user.findOne({
       where: { emailAddress: credentials.name },
     });
 
-    if (user) {
-      const authenticated = bcrypt.compareSync(credentials.pass, user.password);
+    if (authUser) {
+      const auth = bcrypt.compareSync(credentials.pass, user.password);
 
-      if (authenticated) {
+      if (authUser) {
         console.log(`Authentication successful for user: ${user.emailAddress}`);
         req.currentUser = user;
       } else {

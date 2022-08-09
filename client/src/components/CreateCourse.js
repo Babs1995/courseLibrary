@@ -36,7 +36,7 @@ export default function CreateCourse() {
                                             value={title} 
                                             onChange={change}
                                         />
-                                    <p>By {context.authenticatedUser.firstName} {context.authenticatedUser.lastName} </p> 
+                                    <p>By {context.authUser.firstName} {context.authUser.lastName} </p> 
                                     <label htmlFor="description">Course Description</label>
                                         <textarea id="description" name="description" value={description} onChange={change}></textarea>
                                 </div>
@@ -67,7 +67,7 @@ export default function CreateCourse() {
           description,
           estimatedTime,
           materialsNeeded,
-          userId: context.authenticatedUser.id
+          userId: context.authUser.id
         };
 
         const body = JSON.stringify(course);
@@ -87,7 +87,7 @@ export default function CreateCourse() {
             fetch("http://localhost:5000/api/courses", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" ,
-                        'Authorization': 'Basic ' + Buffer.from(`${context.authenticatedUser.emailAddress}:${context.authenticatedUser.password}`).toString("base64") 
+                        'Authorization': 'Basic ' + Buffer.from(`${context.authUser.emailAddress}:${context.authUser.password}`).toString("base64") 
                 },
                 body: body
             })

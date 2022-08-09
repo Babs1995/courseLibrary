@@ -5,7 +5,7 @@ import Form from './Form';
 import Context from '../Context';
 import Forbidden from './Forbidden';
 
-export default function UpdateCourse() {
+export default function UpdatedCourse() {
 
     let history = useHistory();
     let context = useContext(Context.Context);
@@ -44,7 +44,7 @@ export default function UpdateCourse() {
     //** Renders the HTML **/
     return (
         <main>
-            {(user && user.id === context.authenticatedUser.id) ? 
+            {(user && user.id === context.auth-user.id) ? 
                 <React.Fragment>
                     <div className="wrap">
                         <h2>Update Course</h2>
@@ -101,7 +101,7 @@ export default function UpdateCourse() {
             description,
             estimatedTime,
             materialsNeeded,
-            userId: context.authenticatedUser.id,
+            userId: context.auth-user.id,
         };
 
         const body = JSON.stringify(updatedCourse);
@@ -121,7 +121,7 @@ export default function UpdateCourse() {
             fetch(`http://localhost:5000/api/courses/${id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" ,
-                        'Authorization': 'Basic ' + Buffer.from(`${context.authenticatedUser.emailAddress}:${context.authenticatedUser.password}`).toString("base64") 
+                        'Authorization': 'Basic ' + Buffer.from(`${context.auth-user.emailAddress}:${context.auth-user.password}`).toString("base64") 
                 },
                 body: body,
             })

@@ -39,10 +39,10 @@ export default function CourseDetail() {
             conditions don't apply. */}
                 <div className="actions--bar">
                     <div className="wrap">
-                        {(context.authenticatedUser && course.user) ?
-                            (context.authenticatedUser.id===course.user.id) ?
+                        {(context.authUser && course.user) ?
+                            (context.authUSer.id===course.user.id) ?
                                 <React.Fragment>
-                                    <Link className="button" to={`/courses/${id}/update`}>Update Course</Link>
+                                    <Link className="button" to={`/courses/${id}/updated`}>Update Course</Link>
                                     <Link className="button" to='/courses/' onClick={deleteACourse}>Delete Course</Link>
                                     <Link className="button button-secondary" to="/courses">Return to List</Link>
                                 </React.Fragment>
@@ -88,7 +88,7 @@ export default function CourseDetail() {
             method: "DELETE",
             headers: { "Content-Type": "application/json",
                 'Authorization': 'Basic ' + Buffer.from(
-                    `${context.authenticatedUser.emailAddress}:${context.authenticatedUser.password}`
+                    `${context.authUser.emailAddress}:${context.authUser.password}`
                   ).toString("base64") },
             body: null,  
         })

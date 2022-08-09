@@ -5,11 +5,11 @@ import {
   Switch
 } from 'react-router-dom';
 import Header from './components/Header';
-import Courses from './components/Courses.js';
+import Courses from './components/Courses';
 import CreateCourse from './components/CreateCourse';
-import UpdateCourse from './components/UpdateCourse';
-import CourseDetail from './components/CourseDetail.js';
-import UserSignIn from './components/UserSignIn.js';
+import UpdatedCourse from './components/UpdatedCourse';
+import CourseDetail from './components/CourseDetail';
+import UserSignIn from './components/UserSignIn';
 import UserSignUp from './components/UserSignUp';
 import UserSignOut from './components/UserSignOut';
 import NotFound from './components/NotFound';
@@ -35,7 +35,7 @@ export default function App() {
         <Route exact path='/' component={Courses} />
         <Route exact path='/courses' component={Courses} />
         <PrivateRoute path="/courses/create" component={CreateCourse} />
-        <PrivateRoute path ='/courses/:id/update' component={UpdateCourse} />
+        <PrivateRoute path ='/courses/:id/update' component={UpdatedCourse} />
         <Route exact path='/courses/:id' component={CourseDetail} />
         <Route path='/signin' component={UserSignInWithContext} /> 
         <Route path='/signup' component={UserSignUpWithContext} />
