@@ -22,7 +22,7 @@ export class Provider extends Component {
   }
 
   render() {
-    const {authUser} = this.state;
+    const authUser = this.state;
     const courses = this.state;
 
     const value = {
