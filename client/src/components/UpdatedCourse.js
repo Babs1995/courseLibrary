@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { Buffer } from 'buffer';
 import Form from './Form';
-import Context from '../Context';
+import {Context} from '../Context';
 import Forbidden from './Forbidden';
 
 export default function UpdatedCourse() {

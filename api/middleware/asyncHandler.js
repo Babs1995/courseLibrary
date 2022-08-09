@@ -8,4 +8,3 @@ exports.asyncHandler = (cb) => {
     }
   }
 }
-Footer

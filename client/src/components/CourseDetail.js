@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link, useParams, useHistory } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown'
 import { Buffer } from "buffer";
-import Context from '../Context';
+import {Context} from '../Context';
 
 export default function CourseDetail() {
 

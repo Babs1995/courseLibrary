@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Buffer } from 'buffer';
-import Context from '../Context';
+import {Context} from '../Context';
 import Form from './Form';
 
 export default function CreateCourse() {
