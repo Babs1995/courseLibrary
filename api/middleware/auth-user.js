@@ -1,10 +1,12 @@
+
+
 'use strict';
 
 const auth = require('basic-auth');
 const bcrypt = require('bcrypt');
-const  { User } = require('../models');
+const { User } = require('../models');
 
-exports.authUser = async (req, res, next) => {
+exports.authenticateUser = async (req, res, next) => {
   let message; // store the message to display
 
   // Parse the user's credentials from the Authorization header.
@@ -12,14 +14,14 @@ exports.authUser = async (req, res, next) => {
   console.log(credentials);
 
   if (credentials) {
-    const authUser = await user.findOne({
+    const user = await User.findOne({
       where: { emailAddress: credentials.name },
     });
 
-    if (authUser) {
-      const auth = bcrypt.compareSync(credentials.pass, user.password);
+    if (user) {
+      const authenticated = bcrypt.compareSync(credentials.pass, user.password);
 
-      if (authUser) {
+      if (authenticated) {
         console.log(`Authentication successful for user: ${user.emailAddress}`);
         req.currentUser = user;
       } else {
